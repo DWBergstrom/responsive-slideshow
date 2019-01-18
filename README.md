@@ -1,8 +1,8 @@
 # responsive-slideshow
 
 
-## Design process
-For this project, I wanted to implement an intuitive and simple interface to satisfy the requirements, which also had multiple methods to navigate through the slides.
+## Design process:
+For this project, I wanted to implement an intuitive and simple interface to satisfy the requirements, which also had multiple methods to navigate through the slides. For example, in addition to the requirement of being able to click and swipe to navigate, I wanted to add keyboard navigation via the left and right arrow keys.
 
 In particular, I wanted to add a side scrolling thumbnail carousel to account for the pagination requirement, due to its flexibility and the opportunity to use flexbox to configure it.
 
@@ -29,6 +29,7 @@ To develop locally, the index.html file can simply be run in the browser and man
 
 ## Future improvements
 - clean up and tighten up all id and class names
+- clean up CSS color values and selector ordering
 - look for opportities to refactor functions
 - To handle HTML5 video: consider moving data- attribute to the current-slide-div so that I can more easily handle the video element (as I am using a hidden element for video, which I unhide when it is selected from the carousel, and my cycleRight and cycleLeft logic becomes precarious when I'm trying to use data- attribute on two elements )
 - Test capabilities to pull in images from an API by either injesting external JSON or pulling in external image URLs
