@@ -1,5 +1,55 @@
-
-
-.slides-container {
-  display: flex;
+body {
+  font-family: sans-serif;
 }
+
+header {
+  text-align: center;
+}
+
+#current-selected-slide {
+  height: 640px;
+  width: auto;
+}
+
+#single-slide-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cycle {
+  height: auto;
+}
+
+.thumbs-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.thumbnail {
+  margin: 5px;
+}
+
+/* image preloads */
+#preload-01 { background: url(./images/autumn-1280.png) no-repeat -9999px -9999px; }
+#preload-02 { background: url(./images/black-forest-1920.png) no-repeat -9999px -9999px; }
+#preload-03 { background: url(./images/boat-1920.png) no-repeat -9999px -9999px; }
+#preload-04 { background: url(./images/branches.svg) no-repeat -9999px -9999px; }
+#preload-05 { background: url(./images/dawn-1920.png) no-repeat -9999px -9999px; }
+#preload-06 { background: url(./images/evening-1280.png) no-repeat -9999px -9999px; }
+#preload-07 { background: url(./images/evening-sky-1920.png) no-repeat -9999px -9999px; }
+#preload-08 { background: url(./images/forest-1920.png) no-repeat -9999px -9999px; }
+#preload-09 { background: url(./images/hills-1920.png) no-repeat -9999px -9999px; }
+#preload-10 { background: url(./images/landscape-1-1920.png) no-repeat -9999px -9999px; }
+#preload-11 { background: url(./images/landscape-2-1920.png) no-repeat -9999px -9999px; }
+#preload-12 { background: url(./images/landscape-3-1920.png) no-repeat -9999px -9999px; }
+#preload-13 { background: url(./images/landscape-4-1920.png) no-repeat -9999px -9999px; }
+#preload-14 { background: url(./images/scotland-1920.png) no-repeat -9999px -9999px; }
+#preload-15 { background: url(./images/tree-1.svg) no-repeat -9999px -9999px; }
+#preload-16 { background: url(./images/tree-2.svg) no-repeat -9999px -9999px; }
+#preload-17 { background: url(./images/tree-3.svg) no-repeat -9999px -9999px; }
+#preload-18 { background: url(./images/trees-1920.png) no-repeat -9999px -9999px; }
+#preload-19 { background: url(./images/yellowstone-1920.png) no-repeat -9999px -9999px; }
+#preload-20 { background: url(./images/zion-1920.png) no-repeat -9999px -9999px; }
+#preload-21 { background: url(./images/road-1920.png) no-repeat -9999px -9999px; }
