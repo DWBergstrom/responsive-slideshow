@@ -1,0 +1,22 @@
+{
+  "name": "responsive-slideshow",
+  "version": "1.0.0",
+  "description": "responsive slideshow for code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DWBergstrom/responsive-slideshow.git"
+  },
+  "author": "Dave Bergstrom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DWBergstrom/responsive-slideshow/issues"
+  },
+  "homepage": "https://github.com/DWBergstrom/responsive-slideshow#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
