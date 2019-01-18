@@ -1,7 +1,7 @@
 # responsive-slideshow
 
 
-## Design process:
+## Design process
 For this project, I wanted to implement an intuitive and simple interface to satisfy the requirements, which also had multiple methods to navigate through the slides.
 
 In particular, I wanted to add a side scrolling thumbnail carousel to account for the pagination requirement, due to its flexibility and the opportunity to use flexbox to configure it.
