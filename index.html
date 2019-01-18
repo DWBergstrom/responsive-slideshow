@@ -14,7 +14,7 @@
     <body>
 
         <header>
-          <h1>Slideshow</h1>
+          <h1>Image Slideshow</h1>
         </header>
 
           <!-- flex container for currently selected slide -->
@@ -29,11 +29,14 @@
             <button class="cycle cycle-right" onclick="cycleRight()">&#10095;</button>
           </div>
 
-          <!-- flex container for available thumbnails -->
-          <div class="thumbs-container" id="thumbs-container">
+          <div id="caption-container"></div>
+          <div id="caption-fill"></div>
+
+          <div id="show-hide-button-container">
+            <input type="button" id="show-hide-caption" onclick="showHideCaption(this)" value="Hide Caption">
           </div>
-
-
+          <!-- flex container for available thumbnails -->
+          <div class="thumbs-container" id="thumbs-container"></div>
 
         <script src="./index.js" async defer></script>
     </body>
