@@ -4,7 +4,7 @@
 ## Design process:
 For this project, I wanted to implement an intuitive and simple interface to satisfy the requirements, which also had multiple methods to navigate through the slides. For example, in addition to the requirement of being able to click and swipe to navigate, I wanted to add keyboard navigation via the left and right arrow keys.
 
-In particular, I wanted to add a side scrolling thumbnail carousel to account for the pagination requirement, due to its flexibility and the opportunity to use flexbox to configure it.
+I wanted to add a side horizontal thumbnail carousel to account for the pagination requirement, due to its flexibility and the opportunity to use flexbox to configure it.
 
 I also wanted a caption option which could be shown or hidden optionally, as an overlay on the slide.
 
