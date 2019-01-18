@@ -7,13 +7,14 @@ header {
 }
 
 #current-selected-slide {
-  height: 440px;
-  width: auto;
+  height: 480px;
+  max-width: 100%
 }
 
 #single-slide-container {
   display: flex;
   justify-content: center;
+  width: auto;
 }
 
 /* for cycle left and right buttons */
@@ -33,12 +34,15 @@ header {
 .thumbs-container {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
+  width: auto;
   margin-top: 20px;
+  overflow: scroll;
+  /* white-space: nowrap; */
 }
 
 .thumbnail {
   margin: 3px;
+  width: auto;
 }
 
 .thumbnail:hover {
@@ -51,7 +55,51 @@ header {
   margin-top: -5px;
 }
 
-/* image preloads */
+/* media queries for smaller / mobile displays */
+@media only screen and (max-width: 1200px) {
+  #current-selected-slide {
+    height: 480px;
+    max-width: 100%
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #current-selected-slide {
+    height: 360px;
+    max-width: 100%
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #current-selected-slide {
+    height: 260px;
+    max-width: 100%
+  }
+
+  .cycle {
+    width: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #current-selected-slide {
+    height: 200px;
+    max-width: 100%
+  }
+
+  .cycle {
+    width: 30px;
+  }
+
+  .thumbnail {
+    margin: 3px;
+    height: 90px;
+    width: auto;
+  }
+
+}
+
+/* image preloads for more efficient picture load time*/
 #preload-01 { background: url(./images/autumn-1280.png) no-repeat -9999px -9999px; }
 #preload-02 { background: url(./images/black-forest-1920.png) no-repeat -9999px -9999px; }
 #preload-03 { background: url(./images/boat-1920.png) no-repeat -9999px -9999px; }

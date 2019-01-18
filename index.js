@@ -149,6 +149,8 @@ let currentSlide = document.getElementById('current-selected-slide')
 let slideOne = imageInfo[0].url
 currentSlide.setAttribute('src', `${slideOne}`)
 currentSlide.setAttribute('data-slide', 0)
+currentSlide.addEventListener('touchstart', getTouchStart)
+currentSlide.addEventListener('touchend', getTouchEnd)
 let currentThumb = document.getElementById('slide-0').firstChild
 currentThumb.setAttribute('id', 'selected-thumb')
 
@@ -172,6 +174,7 @@ function cycleRight() {
     // set next thumbnail to first in the collection, and set id for border
     let nextThumb = document.getElementById('slide-0').firstChild
     nextThumb.setAttribute('id', 'selected-thumb')
+    nextThumb.scrollIntoView()
   } else { // for all others, move up one index in the array of image urls
     let imgUrl = imageInfo[slideId + 1].url
     currentSlide.setAttribute('src', `${imgUrl}`)
@@ -181,6 +184,7 @@ function cycleRight() {
     // set next thumbnail to next in the collection, and set id for border
     let nextThumb = document.getElementById(`slide-${slideId + 1}`).firstChild
     nextThumb.setAttribute('id', 'selected-thumb')
+    nextThumb.scrollIntoView()
   }
 }
 
@@ -204,6 +208,7 @@ function cycleLeft() {
     // set next thumbnail to first in the collection, and set id for border
     let previousThumb = document.getElementById(`slide-${imageInfo.length - 1}`).firstChild
     previousThumb.setAttribute('id', 'selected-thumb')
+    previousThumb.scrollIntoView()
   } else { // for all others, move down one index in the array of image urls
     let imgUrl = imageInfo[slideId - 1].url
     currentSlide.setAttribute('src', `${imgUrl}`)
@@ -213,6 +218,7 @@ function cycleLeft() {
     // set next thumbnail to next in the collection, and set id for border
     let previousThumb = document.getElementById(`slide-${slideId - 1}`).firstChild
     previousThumb.setAttribute('id', 'selected-thumb')
+    previousThumb.scrollIntoView()
   }
 }
 
@@ -226,4 +232,37 @@ document.onkeydown = function(event) {
             cycleRight()
             break
     }
+}
+
+// get first touch position for touchscreen nav
+// define starting x coordinate outside the function so
+// it is accessible to getTouchEnd
+let startx = 0
+function getTouchStart(event) {
+  let touchobj = event.changedTouches[0]
+  startx = parseInt(touchobj.clientX)
+  event.preventDefault()
+}
+
+// measure touch distance for touchscreen nav
+function getTouchMove(event) {
+  let touchobj = event.changedTouches[0]
+  let startx = parseInt(touchobj.clientX)
+  let dist = parseInt(touchobj.clientX) - startx
+  console.log(dist)
+  event.preventDefault()
+}
+
+// get the final x coordinate for the touch event and
+// calculate whether to scroll left or right
+function getTouchEnd(event) {
+  let touchobj = event.changedTouches[0]
+  let endx = parseInt(touchobj.clientX)
+  let travel = startx - endx
+  if (travel > 10) {
+    cycleRight()
+  } else if (travel < -10) {
+    cycleLeft()
+  }
+  event.preventDefault()
 }
