@@ -4,127 +4,148 @@ const imageInfo = [
         "url": "./images/autumn-1280.png",
         "name": "autumn-1280.png",
         "thumbnail": "./images/thumbnails/autumn-1280_tn.png",
-        "caption": "Autumn"
+        "caption": "Autumn",
+        "type": "photo"
       },
       {
         "url": "./images/black-forest-1920.png",
         "name": "black-forest-1920.png",
         "thumbnail": "./images/thumbnails/black-forest-1920_tn.png",
-        "caption": "Black Forest"
+        "caption": "Black Forest",
+        "type": "photo"
       },
       {
         "url": "./images/boat-1920.png",
         "name": "boat-1920.png",
         "thumbnail": "./images/thumbnails/boat-1920_tn.png",
-        "caption": "Boat in Sunset"
+        "caption": "Boat in Sunset",
+        "type": "photo"
       },
       {
         "url": "./images/branches.svg",
         "name": "branches.svg",
         "thumbnail": "./images/thumbnails/branches_tn.png",
-        "caption": "Branches"
+        "caption": "Branches",
+        "type": "photo"
       },
       {
         "url": "./images/dawn-1920.png",
         "name": "dawn-1920.png",
         "thumbnail": "./images/thumbnails/dawn-1920_tn.png",
-        "caption": "Dawn"
+        "caption": "Dawn",
+        "type": "photo"
       },
       {
         "url": "./images/evening-1280.png",
         "name": "evening-1280.png",
         "thumbnail": "./images/thumbnails/evening-1280_tn.png",
-        "caption": "Evening"
+        "caption": "Evening",
+        "type": "photo"
       },
       {
         "url": "./images/evening-sky-1920.png",
         "name": "evening-sky-1920.png",
         "thumbnail": "./images/thumbnails/evening-sky-1920_tn.png",
-        "caption": "Evening Sky"
+        "caption": "Evening Sky",
+        "type": "photo"
       },
       {
         "url": "./images/forest-1920.png",
         "name": "forest-1920.png",
         "thumbnail": "./images/thumbnails/forest-1920_tn.png",
-        "caption": "Forest"
+        "caption": "Forest",
+        "type": "photo"
       },
       {
         "url": "./images/hills-1920.png",
         "name": "hills-1920.png",
         "thumbnail": "./images/thumbnails/hills-1920_tn.png",
-        "caption": "Hills"
+        "caption": "Hills",
+        "type": "photo"
       },
       {
         "url": "./images/landscape-1-1920.png",
         "name": "landscape-1-1920.png",
         "thumbnail": "./images/thumbnails/landscape-1-1920_tn.png",
-        "caption": "Landscape One"
+        "caption": "Landscape One",
+        "type": "photo"
       },
       {
         "url": "./images/landscape-2-1920.png",
         "name": "landscape-2-1920.png",
         "thumbnail": "./images/thumbnails/landscape-2-1920_tn.png",
-        "caption": "Landscape Two"
+        "caption": "Landscape Two",
+        "type": "photo"
       },
       {
         "url": "./images/landscape-3-1920.png",
         "name": "landscape-3-1920.png",
         "thumbnail": "./images/thumbnails/landscape-3-1920_tn.png",
-        "caption": "Landscape Three"
+        "caption": "Landscape Three",
+        "type": "photo"
       },
       {
         "url": "./images/landscape-4-1920.png",
         "name": "landscape-4-1920.png",
         "thumbnail": "./images/thumbnails/landscape-4-1920_tn.png",
-        "caption": "Landscape Four"
+        "caption": "Landscape Four",
+        "type": "photo"
       },
       {
         "url": "./images/road-1920.png",
         "name": "road-1920.png",
         "thumbnail": "./images/thumbnails/road-1920_tn.png",
-        "caption": "Road"
+        "caption": "Road",
+        "type": "photo"
       },
       {
         "url": "./images/scotland-1920.png",
         "name": "scotland-1920.png",
         "thumbnail": "./images/thumbnails/scotland-1920_tn.png",
-        "caption": "Scotland"
+        "caption": "Scotland",
+        "type": "photo"
       },
       {
         "url": "./images/tree-1.svg",
         "name": "tree-1.svg",
         "thumbnail": "./images/thumbnails/tree-1_tn.png",
-        "caption": "Tree One"
+        "caption": "Tree One",
+        "type": "photo"
       },
       {
         "url": "./images/tree-2.svg",
         "name": "tree-2.svg",
         "thumbnail": "./images/thumbnails/tree-2_tn.png",
-        "caption": "Tree Two"
+        "caption": "Tree Two",
+        "type": "photo"
       },
       {
         "url": "./images/tree-3.svg",
         "name": "tree-3.svg",
         "thumbnail": "./images/thumbnails/tree-3_tn.png",
-        "caption": "Tree Three"
+        "caption": "Tree Three",
+        "type": "photo"
       },
       {
         "url": "./images/trees-1920.png",
         "name": "trees-1920.png",
         "thumbnail": "./images/thumbnails/trees-1920_tn.png",
-        "caption": "Trees"
+        "caption": "Trees",
+        "type": "photo"
       },
       {
         "url": "./images/yellowstone-1920.png",
         "name": "yellowstone-1920.png",
         "thumbnail": "./images/thumbnails/yellowstone-1920_tn.png",
-        "caption": "Yellowstone"
+        "caption": "Yellowstone",
+        "type": "photo"
       },
       {
         "url": "./images/zion-1920.png",
         "name": "zion-1920.png",
         "thumbnail": "./images/thumbnails/zion-1920_tn.png",
-        "caption": "Zion"
+        "caption": "Zion",
+        "type": "photo"
       }
     ]
 
@@ -158,8 +179,18 @@ for (let i = 0; i < imageInfo.length; i++) {
       let captionContent = imageInfo[i].caption
       captionId.innerHTML = `<div id="caption">${captionContent}</div>`
     }
-    currentSlide.setAttribute('src', `${imgUrl}`)
-    currentSlide.setAttribute('data-slide', `${i}`)
+    if (imageInfo[i].type === 'video') {
+      let videoPlayer = document.getElementById('video')
+      videoPlayer.setAttribute('style', 'display: block;')
+      videoPlayer.setAttribute('data-slide', `${i}`)
+      currentSlide.setAttribute('src', '')
+      currentSlide.setAttribute('data-slide', -1)
+      console.log('video')
+
+    } else {
+      currentSlide.setAttribute('src', `${imgUrl}`)
+      currentSlide.setAttribute('data-slide', `${i}`)
+    }
     // ES6 spread operator to convert HTML collection to array for iteration
     let allThumbnails = [...document.getElementsByClassName('thumbnail')]
     allThumbnails.forEach(element => {
