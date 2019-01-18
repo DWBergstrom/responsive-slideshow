@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/DWBergstrom/responsive-slideshow/issues"
   },
-  "homepage": "https://github.com/DWBergstrom/responsive-slideshow#readme",
+  "homepage": "https://github.com/DWBergstrom/responsive-slideshow/index.html",
   "dependencies": {
     "live-server": "^1.2.1"
   }
