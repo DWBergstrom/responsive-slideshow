@@ -351,3 +351,12 @@ function getTouchEnd(event) {
   }
   event.preventDefault()
 }
+
+// image preload
+// creates hidden divs with ids which preload the images as background images via CSS
+let preloadLocation = document.getElementById('hidden-image-preload')
+for (let i = 1; i <= imageInfo.length; i++) {
+  let childDiv = document.createElement('div')
+  childDiv.setAttribute('id', `preload-${i}`)
+  preloadLocation.appendChild(childDiv)
+}

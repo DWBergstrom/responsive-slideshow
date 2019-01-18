@@ -23,7 +23,7 @@ body {
 ::-webkit-scrollbar-thumb:horizontal {
   background-color: #3D9970;
   outline: 1px solid slategrey;
-  border: 1px solid gray;
+  border: 1px solid #808080;
   border-radius: 0;
 }
 
@@ -33,7 +33,7 @@ header {
   padding-top: 9px;
   height: 50px;
   background: #3D9970;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #808080;
 }
 
 #current-selected-slide {
@@ -90,7 +90,7 @@ input[type="button"] {
   font-size: 100%;
   font-family: inherit;
   border-radius: 0;
-  border: 1px solid gray;
+  border: 1px solid #808080;
   background-color: #F0EAD6;
   -webkit-appearance: button;
 }
@@ -100,7 +100,7 @@ input[type="button"] {
   justify-content: flex-start;
   width: auto;
   margin-top: 5px;
-  border-top: 1px solid gray;
+  border-top: 1px solid #808080;
   overflow: scroll;
   /* scroll momentum on mobile */
   -webkit-overflow-scrolling: touch;
@@ -120,6 +120,10 @@ input[type="button"] {
 #selected-thumb {
   border-bottom: 8px solid black;
   margin-top: -5px;
+}
+
+.hidden-image-preload {
+  display: hidden;
 }
 
 /* media queries for smaller / mobile displays */
@@ -190,15 +194,15 @@ input[type="button"] {
 }
 
 /* image preloads for more efficient picture load time*/
-#preload-01 { background: url(./images/autumn-1280.png) no-repeat -9999px -9999px; }
-#preload-02 { background: url(./images/black-forest-1920.png) no-repeat -9999px -9999px; }
-#preload-03 { background: url(./images/boat-1920.png) no-repeat -9999px -9999px; }
-#preload-04 { background: url(./images/branches.svg) no-repeat -9999px -9999px; }
-#preload-05 { background: url(./images/dawn-1920.png) no-repeat -9999px -9999px; }
-#preload-06 { background: url(./images/evening-1280.png) no-repeat -9999px -9999px; }
-#preload-07 { background: url(./images/evening-sky-1920.png) no-repeat -9999px -9999px; }
-#preload-08 { background: url(./images/forest-1920.png) no-repeat -9999px -9999px; }
-#preload-09 { background: url(./images/hills-1920.png) no-repeat -9999px -9999px; }
+#preload-1 { background: url(./images/autumn-1280.png) no-repeat -9999px -9999px; }
+#preload-2 { background: url(./images/black-forest-1920.png) no-repeat -9999px -9999px; }
+#preload-3 { background: url(./images/boat-1920.png) no-repeat -9999px -9999px; }
+#preload-4 { background: url(./images/branches.svg) no-repeat -9999px -9999px; }
+#preload-5 { background: url(./images/dawn-1920.png) no-repeat -9999px -9999px; }
+#preload-6 { background: url(./images/evening-1280.png) no-repeat -9999px -9999px; }
+#preload-7 { background: url(./images/evening-sky-1920.png) no-repeat -9999px -9999px; }
+#preload-8 { background: url(./images/forest-1920.png) no-repeat -9999px -9999px; }
+#preload-9 { background: url(./images/hills-1920.png) no-repeat -9999px -9999px; }
 #preload-10 { background: url(./images/landscape-1-1920.png) no-repeat -9999px -9999px; }
 #preload-11 { background: url(./images/landscape-2-1920.png) no-repeat -9999px -9999px; }
 #preload-12 { background: url(./images/landscape-3-1920.png) no-repeat -9999px -9999px; }
