@@ -1,4 +1,4 @@
-// image info object
+// image info array, containing urls, names and thumbnail urls
 const imageInfo = [
       {
         "url": "./images/autumn-1280.png",
@@ -117,6 +117,7 @@ for (let i = 0; i < imageInfo.length; i++) {
   document.getElementById('thumbs-container').appendChild(div)
   // create img element with attributes and append to parent div
   let thumbnail = document.createElement('img')
+  // extract info from imageInfo array
   let imgUrl = imageInfo[i].url
   let thumbUrl = imageInfo[i].thumbnail
   let imgAlt = imageInfo[i].name
@@ -125,24 +126,39 @@ for (let i = 0; i < imageInfo.length; i++) {
   thumbnail.setAttribute('width', '100%')
   thumbnail.setAttribute('alt', `${imgAlt}`)
   thumbnail.setAttribute('class', 'thumbnail')
+  // add click listener to the thumbnail to send its index as a data- attribute
+  // to the currently selected slide
   thumbnail.addEventListener('click', () => {
     let currentSlide = document.getElementById('current-selected-slide')
     currentSlide.setAttribute('src', `${imgUrl}`)
     currentSlide.setAttribute('data-slide', `${i}`)
+    // ES6 spread operator to convert HTML collection to array for iteration
+    let allThumbnails = [...document.getElementsByClassName('thumbnail')]
+    allThumbnails.forEach(element => {
+      // remove the current id to remove the border
+      element.removeAttribute('id')
+    })
+    // add id to add border to selected thumbnail
+    thumbnail.setAttribute('id', 'selected-thumb')
   })
   document.getElementById(`slide-${i}`).appendChild(thumbnail)
 }
 
+// set the current slide to the first in the collection on page load
 let currentSlide = document.getElementById('current-selected-slide')
 let slideOne = imageInfo[0].url
 currentSlide.setAttribute('src', `${slideOne}`)
 currentSlide.setAttribute('data-slide', 0)
+let currentThumb = document.getElementById('slide-0').firstChild
+currentThumb.setAttribute('id', 'selected-thumb')
 
 // function for button to cycle to right through images
 function cycleRight() {
-  // get the current picture and its data id
+  // get the current picture and its data id for array iteration
   let currentSlide = document.getElementById('current-selected-slide')
   let slideId = parseInt(currentSlide.getAttribute('data-slide'))
+  let currentThumb = document.getElementById(`slide-${slideId}`).firstChild
+  // handle condition if first slide does not load
   if (slideId === null) {
     let selectMessage = document.createElement('h2')
     selectMessage.innerHTML = 'Please select an image'
@@ -151,10 +167,20 @@ function cycleRight() {
     let imgUrl = imageInfo[0].url
     currentSlide.setAttribute('src', `${imgUrl}`)
     currentSlide.setAttribute('data-slide', 0)
+    // remove id to remove border
+    currentThumb.removeAttribute('id')
+    // set next thumbnail to first in the collection, and set id for border
+    let nextThumb = document.getElementById('slide-0').firstChild
+    nextThumb.setAttribute('id', 'selected-thumb')
   } else { // for all others, move up one index in the array of image urls
     let imgUrl = imageInfo[slideId + 1].url
     currentSlide.setAttribute('src', `${imgUrl}`)
     currentSlide.setAttribute('data-slide', slideId + 1)
+    // remove id to remove border
+    currentThumb.removeAttribute('id')
+    // set next thumbnail to next in the collection, and set id for border
+    let nextThumb = document.getElementById(`slide-${slideId + 1}`).firstChild
+    nextThumb.setAttribute('id', 'selected-thumb')
   }
 }
 
@@ -163,6 +189,8 @@ function cycleLeft() {
   // get the current picture and its data id
   let currentSlide = document.getElementById('current-selected-slide')
   let slideId = parseInt(currentSlide.getAttribute('data-slide'))
+  let currentThumb = document.getElementById(`slide-${slideId}`).firstChild
+  // handle condition if first slide does not load
   if (slideId === null) {
     let selectMessage = document.createElement('h2')
     selectMessage.innerHTML = 'Please select an image'
@@ -171,9 +199,31 @@ function cycleLeft() {
     let imgUrl = imageInfo[imageInfo.length - 1].url
     currentSlide.setAttribute('src', `${imgUrl}`)
     currentSlide.setAttribute('data-slide', imageInfo.length - 1)
+    // remove id to remove border
+    currentThumb.removeAttribute('id')
+    // set next thumbnail to first in the collection, and set id for border
+    let previousThumb = document.getElementById(`slide-${imageInfo.length - 1}`).firstChild
+    previousThumb.setAttribute('id', 'selected-thumb')
   } else { // for all others, move down one index in the array of image urls
     let imgUrl = imageInfo[slideId - 1].url
     currentSlide.setAttribute('src', `${imgUrl}`)
     currentSlide.setAttribute('data-slide', slideId - 1)
+    // remove id to remove border
+    currentThumb.removeAttribute('id')
+    // set next thumbnail to next in the collection, and set id for border
+    let previousThumb = document.getElementById(`slide-${slideId - 1}`).firstChild
+    previousThumb.setAttribute('id', 'selected-thumb')
   }
+}
+
+// allow cycling through images with arrow keys
+document.onkeydown = function(event) {
+    switch (event.keyCode) {
+        case 37:
+            cycleLeft()
+            break
+        case 39:
+            cycleRight()
+            break
+    }
 }

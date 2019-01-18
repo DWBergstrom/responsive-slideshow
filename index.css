@@ -7,7 +7,7 @@ header {
 }
 
 #current-selected-slide {
-  height: 640px;
+  height: 440px;
   width: auto;
 }
 
@@ -16,8 +16,18 @@ header {
   justify-content: center;
 }
 
+/* for cycle left and right buttons */
 .cycle {
   height: auto;
+  width: 50px;
+  margin-bottom: 4px;
+	border: 0;
+	font-size: 100%;
+	line-height: 1;
+	text-decoration: none;
+	color: white;
+	background: rgba(0, 0, 0, .4);
+	cursor: pointer;
 }
 
 .thumbs-container {
@@ -28,7 +38,17 @@ header {
 }
 
 .thumbnail {
-  margin: 5px;
+  margin: 3px;
+}
+
+.thumbnail:hover {
+  border-bottom: 8px solid black;
+  margin-top: -5px;
+}
+
+#selected-thumb {
+  border-bottom: 8px solid black;
+  margin-top: -5px;
 }
 
 /* image preloads */
