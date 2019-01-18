@@ -24,7 +24,7 @@ For the responsive requirement, I wanted to lean heavily on CSS flexbox due to i
 
 To streamline page load time, I preload all the images in a hidden div outside the viewport, which allows subsequent calls for the image URLs to pull from the preloaded image file.
 
-To develop locally, the index.html file can simply be run in the browser and manually refreshed.  Optionally, run npm install from the project directory to install live-server, and run with live-server --port=8000 (or other desired port), then you can run localhost/index.html:8000 from the browser.  This will auto-reload on code edits for faster development.
+To develop locally, the index.html file can simply be run in the browser and manually refreshed.  Optionally, run `npm install` from the project directory to install live-server, and run with `live-server --port=8000` (or other desired port), then you can run `localhost/index.html:8000` from the browser.  This will auto-reload on code edits for faster development.
 
 
 ## Future improvements
