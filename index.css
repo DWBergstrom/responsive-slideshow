@@ -37,7 +37,8 @@ header {
   width: auto;
   margin-top: 20px;
   overflow: scroll;
-  /* white-space: nowrap; */
+  /* scroll momentum on mobile */
+  -webkit-overflow-scrolling: touch;
 }
 
 .thumbnail {
