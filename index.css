@@ -3,18 +3,37 @@
 }
 
 body {
-  font-family: sans-serif;
-  background: #DDDDDD;
+  font-family: 'Raleway', sans-serif;
   background-attachment: fixed;
   background-image: url('./images/background-overlay-final.png');
   background-repeat: no-repeat center center fixed;
   background-size: 200%;
 }
 
+::-webkit-scrollbar {
+  height: 8px;
+  overflow: visible;
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #3D9970;
+  outline: 1px solid slategrey;
+  border: 1px solid gray;
+  border-radius: 0;
+}
+
 header {
+  color: #F0EAD6;
   text-align: center;
-  background: #3D9970;
+  padding-top: 9px;
   height: 50px;
+  background: #3D9970;
+  border-bottom: 1px solid gray;
 }
 
 #current-selected-slide {
@@ -29,10 +48,6 @@ header {
   margin-top: 10px;
 }
 
-/* #current-slide-div {
-  background: white;
-} */
-
 /* for cycle left and right buttons */
 .cycle {
   height: auto;
@@ -42,7 +57,7 @@ header {
 	font-size: 100%;
 	line-height: 1;
 	text-decoration: none;
-	color: white;
+	color: #F0EAD6;
 	background: rgba(0, 0, 0, .4);
 	cursor: pointer;
 }
@@ -60,8 +75,9 @@ header {
 }
 
 #caption {
-  background: rgba(250, 250, 250, .4);
-  padding: 9px;
+  background: rgba(250, 250, 250, .5);
+  padding: 10px;
+  padding-top: 9px;
   font-weight: bold;
 }
 
@@ -74,6 +90,8 @@ input[type="button"] {
   font-size: 100%;
   font-family: inherit;
   border-radius: 0;
+  border: 1px solid gray;
+  background-color: #F0EAD6;
   -webkit-appearance: button;
 }
 
@@ -82,6 +100,7 @@ input[type="button"] {
   justify-content: flex-start;
   width: auto;
   margin-top: 5px;
+  border-top: 1px solid gray;
   overflow: scroll;
   /* scroll momentum on mobile */
   -webkit-overflow-scrolling: touch;
@@ -152,11 +171,12 @@ input[type="button"] {
 
   #caption {
     background: rgba(250, 250, 250, .4);
-    padding: 9px;
+    padding: 10px;
+    padding-top: 9px;
   }
 
   input[type="button"] {
-    font-size: 70%;
+    font-size: 75%;
     border: 1px solid black;
     padding: 5px;
   }
